@@ -8,3 +8,4 @@ fun! s:DetectLogstash()
 endfun
 
 autocmd BufNewFile,BufRead *.conf call s:DetectLogstash()
+autocmd FileType logstash set commentstring=#\ %s
