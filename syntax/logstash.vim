@@ -9,31 +9,36 @@ setlocal iskeyword+=.
 setlocal iskeyword+=/
 setlocal iskeyword+=:
 
-syn match logstashVariableBlock '\[[^,]*\]' contained
-syn match logstashVariableString '\[[^,]*\]' contained
+syn match logstashVariableBlock '\v\[[^,"].*\]' contained
+syn match logstashVariableString '\v\[[^,"].*\]' contained
 
-syn match logstashOperator '=>' contained
-syn match logstashOperator '==' contained
-syn match logstashOperator '!=' contained
-syn match logstashOperator '<' contained
-syn match logstashOperator '>' contained
-syn match logstashOperator '>=' contained
-syn match logstashOperator '<=' contained
+syn match logstashOperator "\v\=\>" contained
+syn match logstashOperator "\v\=\=" contained
+syn match logstashOperator "\v!\=" contained
+syn match logstashOperator "\v\<" contained
+syn match logstashOperator "\v\>" contained
+syn match logstashOperator "\v\>\=" contained
+syn match logstashOperator "\v\<\=" contained
+syn match logstashBraces   "\v\{" contained
+syn match logstashBraces   "\v\}" contained
 
 syn keyword logstashOperator in contained
 syn keyword logstashOperator not contained
 syn keyword logstashOperator not contained
+syn keyword logstashOperator and contained
 
 syn keyword logstashConditional if contained
 
 syn keyword logstashBoolean true contained
 syn keyword logstashBoolean false contained
 
-syn match logstashNumber '\d\+' contained
+syn match logstashNumber '\v\d\+' contained
 
-syn region logstashBlock start=+{+ end=+}+ contains=logstashBlock,logstashComment,logstashPlugin,logstashVariableBlock,logstashString,logstashOperator,logstashBoolean,logstashNumber,logstashConditional
-syn region logstashString start=+"+ end=+"+ skip=+\\\\\|\\"+ contains=logstashVariableString,logstashFormat oneline
-syn region logstashString start=+'+ end=+'+ skip=+\\\\\|\\'+ contains=logstashVariableString,logstashFormat oneline
+syn region logstashBlock start=+{+ end=+}+ contains=logstashBlock,logstashComment,logstashPlugin,logstashVariableBlock,logstashString,logstashOperator,logstashBoolean,logstashNumber,logstashConditional,logstashBraces
+syn region logstashString start=+"+ end=+"+ skip=+\\\\\|\\"+ contains=logstashFormat
+syn region logstashString start=+'+ end=+'+ skip=+\\\\\|\\'+ contains=logstashFormat
+syn region logstashVariableBlock start=/\v\[/ skip=/\v\\./ end=/\v\]/ contains=logstashString
+syn region logstashVariableString start=/\v\[/ skip=/\v\\./ end=/\v\]/ contains=logstashString
 syn region logstashFormat start=+%{+ end=+}+ contains=logstashVariableString oneline
 
 syn match logstashComment ' *#.*$'
@@ -219,6 +224,7 @@ syn keyword logstashPlugin zeromq contained
 
 hi link logstashBlock Normal
 hi link logstashPlugin Function
+hi link logstashBraces Function
 hi link logstashSection Statement
 
 hi link logstashComment Comment
