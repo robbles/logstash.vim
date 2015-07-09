@@ -59,6 +59,7 @@ syn keyword logstashPlugin gelf contained
 syn keyword logstashPlugin gemfire contained
 syn keyword logstashPlugin generator contained
 syn keyword logstashPlugin graphite contained
+syn keyword logstashPlugin heartbeat contained
 syn keyword logstashPlugin heroku contained
 syn keyword logstashPlugin imap contained
 syn keyword logstashPlugin invalid_input contained
