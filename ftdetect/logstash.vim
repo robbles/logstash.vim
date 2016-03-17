@@ -9,7 +9,7 @@ fun! s:DetectLogstash()
 
 	"look for keywords in next 10 lines
     for i in range(10)
-        if (this_line =~ '^[ \t]*\(input\|filter\|output\) {')
+        if (this_line =~ '^[ \t]*\(input\|grok\|json\|mutate\|filter\|output\) {')
             set ft=logstash
             break
         endif
