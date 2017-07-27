@@ -5,10 +5,6 @@ if exists("b:current_syntax")
   finish
 end
 
-setlocal iskeyword+=.
-setlocal iskeyword+=/
-setlocal iskeyword+=:
-
 syn match logstashVariableBlock '\v\[[^,"].*\]' contained
 syn match logstashVariableString '\v\[[^,"].*\]' contained
 
