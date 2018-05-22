@@ -1,6 +1,6 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'python') == -1
-..
-" PEP8 compatible Python indent file
+if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'logstash') == -1
+
+" PEP8 compatible Logstash indent file
 " Only load this indent file when no other was loaded.
 if exists("b:did_indent")
     finish
@@ -10,7 +10,7 @@ let b:did_indent = 1
 setlocal expandtab
 setlocal nolisp
 setlocal autoindent
-setlocal indentexpr=GetPythonPEPIndent(v:lnum)
+setlocal indentexpr=GetLogstashPEPIndent(v:lnum)
 setlocal indentkeys=!^F,o,O,<:>,0),0],0},=elif,=except
 
 let s:maxoff = 50
@@ -96,7 +96,7 @@ function! s:BlockStarter(lnum, block_start_re)
   return -1
 endfunction
 
-function! GetPythonPEPIndent(lnum)
+function! GetLogstashPEPIndent(lnum)
   let scol = col('.')
 
   " First line has indent 0
