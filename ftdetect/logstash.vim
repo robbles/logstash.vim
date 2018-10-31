@@ -1,6 +1,6 @@
 fun! s:DetectLogstash()
 	"skip comment lines
-	let lnr = line(".")
+	let lnr = 0
 	let this_line = getline(lnr)
 	while (this_line =~ '^#')
 		let lnr = lnr+1
