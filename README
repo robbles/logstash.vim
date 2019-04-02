@@ -1,1 +1,14 @@
 logstash.vim highlights configuration files for logstash, a tool for managing events and logs (see http://logstash.net)
+
+Install using [vim-pathogen](https://github.com/tpope/vim-pathogen):
+
+```
+cd ~/.vim/bundle
+git clone https://github.com/prettier/vim-prettier
+```
+
+To install using [vundle](https://github.com/VundleVim/Vundle.vim), add the following to your `.vimrc`:
+
+```
+Plugin 'robbles/logstash.vim'
+```
